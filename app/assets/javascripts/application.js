@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+<<<<<<< HEAD
 //= require bootstrap-sprockets
 //= require_tree .
+=======
+//= require gmaps
+//= require_tree .
+>>>>>>> gmaps.js_trial
