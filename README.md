@@ -7,10 +7,10 @@ Where is Sean's Jumper?! A 3-day Makerathon project using Rails to try and locat
 
 ## Technologies Used
 
-Ruby on Rails
-JavaScript
-jQuery
-HTML and CSS
+- Ruby on Rails
+- JavaScript
+- jQuery
+- HTML and CSS
 
 ## Job List
 
@@ -29,10 +29,10 @@ HTML and CSS
 ~~~
 
 ## Collaborators
-NicolePell (https://github.com/NicolePell)
-craigh44 (https://github.com/craigh44)
-camillavk (https://github.com/camillavk)
-HatStephens (https://github.com/HatStephens)
+- NicolePell (https://github.com/NicolePell)
+- craigh44 (https://github.com/craigh44)
+- camillavk (https://github.com/camillavk)
+- HatStephens (https://github.com/HatStephens)
 
 ## Still to complete/refactor
 
