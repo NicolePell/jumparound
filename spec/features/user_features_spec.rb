@@ -6,6 +6,11 @@ context 'user not signed in and on the homepage' do
     expect(page).to have_link 'Sign in'
     expect(page).to have_link 'Sign up'
   end
+
+  it 'should see a Sign in with Facebook link' do
+    visit '/'
+    expect(page).to have_link 'Sign in with Facebook'
+  end
 end
 
 context 'user signed in and on the homepage' do
