@@ -11,8 +11,12 @@
 	  	div: '#map',
 	  	lat: 53.5,
 	  	lng: -2.5,
-	  	zoom: 5,
-	  	disableDefaultUI: true
+	  	zoom: 6,
+	  	disableDefaultUI: true,
+	  	zoomControl: true,
+		  scaleControl: false,
+		  scrollwheel: false,
+		  disableDoubleClickZoom: false
 	  });
 	});
 
@@ -20,11 +24,9 @@
 
 <% if @sightings.any? %>
 	<% @sightings.each do |sighting| %>
-		<%= sighting.caption %>
-		<%= image_tag sighting.image.url(:thumb) %>
-		<%= sighting.location %>
-		<%= sighting.longitude %>
-		<%= sighting.latitude %>
+		<p>Sighting: <%= sighting.caption %></p>
+		<p>Location: <%= sighting.location %></p>
+		<p>Date: <%= sighting.seen_at %></p>
 
 		<%= javascript_tag do %>
 			$(document).ready(function(){
@@ -32,7 +34,7 @@
 	  			lat: <%= sighting.latitude %>,
 				  lng: <%= sighting.longitude %>,
 				  title: "TEST",
-	  			infoWindow: {content: '<%= image_tag sighting.image.url(:medium) %>'},
+	  			infoWindow: {content: '<%= sighting.caption %><br/><%= image_tag sighting.image.url(:medium) %><br/><%= sighting.location %><br/><%= sighting.seen_at %>'},
 				  click: function(e) {
 	  			}
 				});
