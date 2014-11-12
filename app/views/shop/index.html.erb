@@ -1,0 +1,7 @@
+<% @items.any? %>
+  <% @items.each do |item| %>
+    <%= item.name %>
+    £<%= item.price %>
+    <%= item.description %>
+    <%= image_tag item.image.url(:medium) %>
+  <% end %>
