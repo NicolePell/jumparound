@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :sightings
+  resources :sightings, shallow: true do
+    resources :likes
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

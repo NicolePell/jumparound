@@ -24,10 +24,15 @@
 
 <% if @sightings.any? %>
 	<% @sightings.each do |sighting| %>
+		<article>
 		<p>Sighting: <%= sighting.caption %></p>
 		<p>Location: <%= sighting.location %></p>
 		<p>Date: <%= sighting.seen_at %></p>
-
+		<% if user_signed_in? %>
+			<span class='likes_count'><%= sighting.likes.count %></span> likes
+			<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
+		<% end %>
+		</article>
 		<%= javascript_tag do %>
 			$(document).ready(function(){
 				map.addMarker({
