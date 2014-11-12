@@ -1,12 +1,23 @@
 class SightingsController < ApplicationController
 
+  before_action :authenticate_user!
+
 	def new
 	end
 
 	def create
-		Sighting.create(sighting_params)
+		@sighting = Sighting.new(sighting_params)
+    @sighting.user = current_user
+    if @sighting.save
+      flash[:notice] = "Sighting added to the map"
+    else
+      @sighting.delete
+      flash[:alert] = "Your sighting has not been saved"
+    end
+
 		redirect_to '/'
-	end
+
+  end
 
 end
 
