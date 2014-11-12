@@ -1,14 +1,26 @@
 <div id='map'>
 </div>
-<div>
-There should be a map above me
-</div>
+
 
 <script>
-var map = new GMaps({
-  div: '#map',
-  lat: 51.607515,
-  lng: -0.438072,
-  zoom: 12
-});
+	var map;
+	$(document).ready(function(){
+		map = new GMaps({
+	  	div: '#map',
+	  	lat: 51.607515,
+	  	lng: -0.438072,
+	  	zoom: 12
+	  });
+	});
 </script>
+
+<% if @sightings.any? %>
+	<% @sightings.each do |sighting| %>
+		<%= sighting.caption %>
+		<%= image_tag sighting.image.url(:medium) %>
+		<% end %>
+<% else %>
+	<h1> Sean's jumper is nowhere to be seen! </h1>
+<% end %>
+
+<%= link_to 'Submit New Sighting', new_sighting_path %>

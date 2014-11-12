@@ -55,6 +55,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -120,6 +124,11 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.1)
     rack (1.6.0.beta)
     rack-test (0.6.2)
@@ -222,6 +231,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.0.beta2)
   omniauth-facebook
+  paperclip
   pg
   rails (= 4.2.0.beta4)
   rspec-rails
