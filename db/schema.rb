@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 20141112133839) do
     t.datetime "image_updated_at"
   end
 
-  create_table "shops", force: true do |t|
-    t.string   "item_name"
-    t.integer  "price"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "sightings", force: true do |t|
     t.string   "caption"
     t.string   "location"
