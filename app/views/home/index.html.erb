@@ -11,16 +11,35 @@
 	  	div: '#map',
 	  	lat: 51.607515,
 	  	lng: -0.438072,
-	  	zoom: 12
+	  	zoom: 12,
+	  	disableDefaultUI: true
 	  });
 	});
+
 </script>
 
 <% if @sightings.any? %>
 	<% @sightings.each do |sighting| %>
 		<%= sighting.caption %>
 		<%= image_tag sighting.image.url(:medium) %>
+		<%= sighting.location %>
+		<%= sighting.longitude %>
+		<%= sighting.latitude %>
+
+		<%= javascript_tag do %>
+			$(document).ready(function(){
+				map.addMarker({
+	  			lat: <%= sighting.latitude %>,
+				  lng: <%= sighting.longitude %>,
+				  title: "TEST",
+				  click: function(e) {
+				    alert('You clicked on this marker');
+	  			}
+				});
+			});
 		<% end %>
+
+	<% end %>
 <% else %>
 	<h1> Sean's jumper is nowhere to be seen! </h1>
 <% end %>

@@ -11,5 +11,5 @@ class SightingsController < ApplicationController
 end
 
 def sighting_params
-	params.require(:sighting).permit(:caption, :image)
+	params.require(:sighting).permit(:caption, :image, :location)
 end
