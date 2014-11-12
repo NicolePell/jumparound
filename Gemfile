@@ -36,6 +36,7 @@ gem 'autoprefixer-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'jquery-ui-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -53,4 +54,6 @@ group :development, :test do
   gem 'rspec-rails', group: :test
 
   gem 'capybara', group: :test
+
+
 end

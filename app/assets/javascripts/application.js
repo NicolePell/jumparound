@@ -14,5 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require gmaps
-//= require bootstrap-sprockets
+//= require jquery-ui
+//= require jquery.modal.min
 //= require_tree .
+
+// $('a').click(function(event){
+//   event.preventDefault();
+//   $(this).modal();
+// });
+
+$(function(){
+  $('a').click(function(event) {
+    event.preventDefault();
+    $.get(this.href, function(html) {
+      $(html).appendTo('body').modal();
+    });
+  });
+});
