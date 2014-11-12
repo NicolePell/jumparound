@@ -30,9 +30,12 @@
 		<p>Sighting: <%= sighting.caption %></p>
 		<p>Location: <%= sighting.location %></p>
 		<p>Date: <%= sighting.seen_at %></p>
-		<% if user_signed_in? %>
+		<% if user_signed_in? && !find_likes(sighting).include?(current_user.id) %>
 			<span class='likes_count'><%= sighting.likes.count %></span> likes
 			<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
+		<% end %>
+		<% if find_likes(sighting).include?(current_user.id) %>
+			<p>You loved this sighting!!!!</p>
 		<% end %>
 		</article>
 		<%= javascript_tag do %>
