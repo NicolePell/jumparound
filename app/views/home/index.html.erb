@@ -9,9 +9,9 @@
 	$(document).ready(function(){
 		map = new GMaps({
 	  	div: '#map',
-	  	lat: 51.607515,
-	  	lng: -0.438072,
-	  	zoom: 12,
+	  	lat: 53.5,
+	  	lng: -2.5,
+	  	zoom: 5,
 	  	disableDefaultUI: true
 	  });
 	});
@@ -21,7 +21,7 @@
 <% if @sightings.any? %>
 	<% @sightings.each do |sighting| %>
 		<%= sighting.caption %>
-		<%= image_tag sighting.image.url(:medium) %>
+		<%= image_tag sighting.image.url(:thumb) %>
 		<%= sighting.location %>
 		<%= sighting.longitude %>
 		<%= sighting.latitude %>
@@ -32,8 +32,8 @@
 	  			lat: <%= sighting.latitude %>,
 				  lng: <%= sighting.longitude %>,
 				  title: "TEST",
+	  			infoWindow: {content: '<%= image_tag sighting.image.url(:medium) %>'},
 				  click: function(e) {
-				    alert('You clicked on this marker');
 	  			}
 				});
 			});
