@@ -1,0 +1,6 @@
+<% @items.any? %>
+  <% @items.each do |item| %>
+    <%= item.name %>
+    £<%= item.price %>
+    <%= item.description %>
+  <% end %>
