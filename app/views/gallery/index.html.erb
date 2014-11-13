@@ -7,61 +7,22 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      <% @sightings.any? %>
-        <% @sightings.each do |sighting| %>
-          <%= image_tag sighting.image.url(:grid) %>
-          <p>Sighting: <%= sighting.caption %></p>
-          <p>Location: <%= sighting.location %></p>
-          <p>Date: <%= sighting.seen_at %></p>
-        <% end %>
-    </div>
-    <div class="col-md-4">
-<% @sightings.any? %>
-  <% @sightings.each do |sighting| %>
-    <%= image_tag sighting.image.url(:grid) %>
-    <p>Sighting: <%= sighting.caption %></p>
-    <p>Location: <%= sighting.location %></p>
-    <p>Date: <%= sighting.seen_at %></p>
-        <% end %>
-    </div>
-    <div class="col-md-4">
-<% @sightings.any? %>
-  <% @sightings.each do |sighting| %>
-    <%= image_tag sighting.image.url(:grid) %>
-    <p>Sighting: <%= sighting.caption %></p>
-    <p>Location: <%= sighting.location %></p>
-    <p>Date: <%= sighting.seen_at %></p>
+    <% @sightings.any? %>
+    <% @sightings.each do |sighting| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="panel-image">
+              <%= image_tag sighting.image.url(:grid), class: "image-image" %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <p>Sighting: <%= sighting.caption %></p>
+            <p>Location: <%= sighting.location %></p>
+            <p>Date: <%= sighting.seen_at %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-<% @sightings.any? %>
-  <% @sightings.each do |sighting| %>
-    <%= image_tag sighting.image.url(:grid) %>
-    <p>Sighting: <%= sighting.caption %></p>
-    <p>Location: <%= sighting.location %></p>
-    <p>Date: <%= sighting.seen_at %></p>
-    <% end %>
-    </div>
-    <div class="col-md-4">
-<% @sightings.any? %>
-  <% @sightings.each do |sighting| %>
-    <%= image_tag sighting.image.url(:grid) %>
-    <p>Sighting: <%= sighting.caption %></p>
-    <p>Location: <%= sighting.location %></p>
-    <p>Date: <%= sighting.seen_at %></p>
-    <% end %>
-    </div>
-    <div class="col-md-4">
-<% @sightings.any? %>
-  <% @sightings.each do |sighting| %>
-    <%= image_tag sighting.image.url(:grid) %>
-    <p>Sighting: <%= sighting.caption %></p>
-    <p>Location: <%= sighting.location %></p>
-    <p>Date: <%= sighting.seen_at %></p>
-        <% end %>
-    </div>
   </div>
 </div>
