@@ -25,8 +25,9 @@
 
 </script>
 </div>
-
-
+<section class="window">
+<a id="recent-sightings"></a>
+<div class="spacer"></div>
 <h2>Recent Sightings:</h2>
 <div class="container-fluid">
 	<div class="row">
@@ -36,9 +37,13 @@
 			<p>Sighting: <%= @sightings[-1].caption %></p>
 			<p>Location: <%= @sightings[-1].location %></p>
 			<p>Date: <%= @sightings[-1].seen_at %></p>
-				<% if user_signed_in? %>
+				<% if user_signed_in? && !find_likes(@sightings[-1]).include?(current_user.id)%>
 					<span class='likes_count'><%= @sightings[-1].likes.count %></span>&nbsp;likes
 					<%= link_to 'Like', sighting_likes_path(@sightings[-1]), class: 'likes_link' %>
+				<% end %>
+				<% if user_signed_in? && find_likes(@sightings[-1]).include?(current_user.id)%>
+					<p><%= @sightings[-1].likes.count %> likes</p>
+					<p>You liked this sighting didn't you!</p>				
 				<% end %>
 		</div>
 		<% end %>
@@ -48,9 +53,13 @@
 		<p>Sighting: <%= @sightings[-2].caption %></p>
 		<p>Location: <%= @sightings[-2].location %></p>
 		<p>Date: <%= @sightings[-2].seen_at %></p>
-			<% if user_signed_in? %>
+			<% if user_signed_in? && !find_likes(@sightings[-2]).include?(current_user.id)%>
 				<span class='likes_count'><%= @sightings[-2].likes.count %></span>&nbsp;likes
 				<%= link_to 'Like', sighting_likes_path(@sightings[-2]), class: 'likes_link' %>
+			<% end %>
+			<% if user_signed_in? && find_likes(@sightings[-2]).include?(current_user.id)%>
+				<p><%= @sightings[-2].likes.count %> likes</p>
+				<p>You liked this sighting didn't you!</p>				
 			<% end %>
 		</div>
 		<% end %>
@@ -62,9 +71,13 @@
 	<p>Sighting: <%= @sightings[-3].caption %></p>
 	<p>Location: <%= @sightings[-3].location %></p>
 	<p>Date: <%= @sightings[-3].seen_at %></p>
-		<% if user_signed_in? %>
+		<% if user_signed_in? && !find_likes(@sightings[-3]).include?(current_user.id)%>
 			<span class='likes_count'><%= @sightings[-3].likes.count %></span>&nbsp;likes
 			<%= link_to 'Like', sighting_likes_path(@sightings[-3]), class: 'likes_link' %>
+		<% end %>
+		<% if user_signed_in? && find_likes(@sightings[-3]).include?(current_user.id)%>
+			<p><%= @sightings[-3].likes.count %> likes</p>
+			<p>You liked this sighting didn't you!</p>				
 		<% end %>
 		</div>
 		<% end %>
@@ -74,16 +87,40 @@
 	<p>Sighting: <%= @sightings[-4].caption %></p>
 	<p>Location: <%= @sightings[-4].location %></p>
 	<p>Date: <%= @sightings[-4].seen_at %></p>
-		<% if user_signed_in? %>
+		<% if user_signed_in? && !find_likes(@sightings[-4]).include?(current_user.id)%>
 			<span class='likes_count'><%= @sightings[-4].likes.count %></span>&nbsp;likes
 			<%= link_to 'Like', sighting_likes_path(@sightings[-4]), class: 'likes_link' %>
+		<% end %>
+		<% if user_signed_in? && find_likes(@sightings[-4]).include?(current_user.id)%>
+			<p><%= @sightings[-4].likes.count %> likes</p>
+			<p>You liked this sighting didn't you!</p>				
 		<% end %>
 		</div>
 		<% end %>
 	</div>
 </div>
+</section>
+<section class="window about">
+<a id='about'></a>
+	<div class="spacer"></div>
+<h2>About</h2>
+<ul>
+	<li>The Story</li>
+		<p>Sean has lost his humper</p>
+	<li>The Project</li>
+		<p>We are helping him find it</p>
+	<li>The Team</li>
+	<ul>
+		<li>Camilla</li>
+		<li>Craig</li>
+		<li>Nicole</li>
+		<li>Steve</li>
+</ul>
+</section>
 
-
+<footer class="footer">
+&copy; Jumparound
+	</footer>
 
 <% if @sightings.any? %>
 	<% @sightings.each do |sighting| %>
