@@ -17,7 +17,8 @@
 	  	streetViewControl: false,
 		  scaleControl: false,
 		  scrollwheel: false,
-		  disableDoubleClickZoom: false
+		  disableDoubleClickZoom: false,
+		  mapTypeControl: false
 	  });
 
 
@@ -29,76 +30,43 @@
 <a id="recent-sightings"></a>
 <div class="spacer"></div>
 <h2>Recent Sightings:</h2>
+
 <div class="container-fluid">
-	<div class="row">
-		<% if @sightings.length>0 %>
-		<div class="col-md-6">
-			<%= image_tag @sightings[-1].image.url(:thumb) %>
-			<p>Sighting: <%= @sightings[-1].caption %></p>
-			<p>Location: <%= @sightings[-1].location %></p>
-			<p>Date: <%= @sightings[-1].seen_at %></p>
-				<% if user_signed_in? && !find_likes(@sightings[-1]).include?(current_user.id)%>
-					<span class='likes_count'><%= @sightings[-1].likes.count %></span>&nbsp;likes
-					<%= link_to 'Like', sighting_likes_path(@sightings[-1]), class: 'likes_link' %>
-				<% end %>
-				<% if user_signed_in? && find_likes(@sightings[-1]).include?(current_user.id)%>
-					<p><%= @sightings[-1].likes.count %> likes</p>
-					<p>You liked this sighting didn't you!</p>				
-				<% end %>
-		</div>
-		<% end %>
-		<% if @sightings.length>1 %>
-		<div class="col-md-6">
-			<%= image_tag @sightings[-2].image.url(:thumb) %>
-		<p>Sighting: <%= @sightings[-2].caption %></p>
-		<p>Location: <%= @sightings[-2].location %></p>
-		<p>Date: <%= @sightings[-2].seen_at %></p>
-			<% if user_signed_in? && !find_likes(@sightings[-2]).include?(current_user.id)%>
-				<span class='likes_count'><%= @sightings[-2].likes.count %></span>&nbsp;likes
-				<%= link_to 'Like', sighting_likes_path(@sightings[-2]), class: 'likes_link' %>
-			<% end %>
-			<% if user_signed_in? && find_likes(@sightings[-2]).include?(current_user.id)%>
-				<p><%= @sightings[-2].likes.count %> likes</p>
-				<p>You liked this sighting didn't you!</p>				
-			<% end %>
-		</div>
-		<% end %>
-	</div>
-	<div class="row">
-		<% if @sightings.length>2 %>
-		<div class="col-md-6">
-			<%= image_tag @sightings[-3].image.url(:thumb) %>
-	<p>Sighting: <%= @sightings[-3].caption %></p>
-	<p>Location: <%= @sightings[-3].location %></p>
-	<p>Date: <%= @sightings[-3].seen_at %></p>
-		<% if user_signed_in? && !find_likes(@sightings[-3]).include?(current_user.id)%>
-			<span class='likes_count'><%= @sightings[-3].likes.count %></span>&nbsp;likes
-			<%= link_to 'Like', sighting_likes_path(@sightings[-3]), class: 'likes_link' %>
-		<% end %>
-		<% if user_signed_in? && find_likes(@sightings[-3]).include?(current_user.id)%>
-			<p><%= @sightings[-3].likes.count %> likes</p>
-			<p>You liked this sighting didn't you!</p>				
-		<% end %>
-		</div>
-		<% end %>
-		<% if @sightings.length>3 %>
-		<div class="col-md-6">
-			<%= image_tag @sightings[-4].image.url(:thumb) %>
-	<p>Sighting: <%= @sightings[-4].caption %></p>
-	<p>Location: <%= @sightings[-4].location %></p>
-	<p>Date: <%= @sightings[-4].seen_at %></p>
-		<% if user_signed_in? && !find_likes(@sightings[-4]).include?(current_user.id)%>
-			<span class='likes_count'><%= @sightings[-4].likes.count %></span>&nbsp;likes
-			<%= link_to 'Like', sighting_likes_path(@sightings[-4]), class: 'likes_link' %>
-		<% end %>
-		<% if user_signed_in? && find_likes(@sightings[-4]).include?(current_user.id)%>
-			<p><%= @sightings[-4].likes.count %> likes</p>
-			<p>You liked this sighting didn't you!</p>				
-		<% end %>
-		</div>
-		<% end %>
-	</div>
+  <div class="row">
+  	<% if @sightings.any? %>
+    <% @sightings = @sightings[(-4..-1)] if @sightings.length > 3 %>
+    <% @sightings.reverse.each do |sighting| %>
+      <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-footer">
+              <div class="recent-image">
+              	<%= image_tag sighting.image.url(:thumb) %>
+              </div>
+              <div class="recent-info">
+              <p>Sighting: <%= sighting.caption %></p>
+							<p>Location: <%= sighting.location %></p>
+							<p>Date: <%= date_format(sighting.seen_at) %></p>
+							<% if user_signed_in? && !find_likes(sighting).include?(current_user.id)%>
+								<span class='likes_count'><%= sighting.likes.count %></span>&nbsp;likes
+								<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
+							<% end %>
+							<% if user_signed_in? && find_likes(sighting).include?(current_user.id)%>
+								<p><%= sighting.likes.count %> likes</p>
+								<p>You liked this sighting didn't you!</p>
+							<% end %>
+							</div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <% end %>
+  </div>
 </div>
+<h2>Weather Report:</h2>
+<p>Sean's Jumper has travelled far and wide. In its travels it has become accustomed to many different weather conditions. Currently, the weather report at the most recent sighting is:</p>
+<h3>ENTER WEATHER API REPORT HERE</h3>
+
+
 </section>
 <section class="window about">
 <a id='about'></a>
@@ -133,7 +101,7 @@
 				  lng: <%= sighting.longitude %>,
 				  title: "Jumper?",
 				  icon: "images/seanpin1_small.png",
-	  			infoWindow: {content: '<%= sighting.caption %><br/><%= image_tag sighting.image.url(:medium) %><br/><%= sighting.location %><br/><%= sighting.seen_at %>'},
+	  			infoWindow: {content: '<%= sighting.caption %><br/><%= image_tag sighting.image.url(:medium) %><br/><%= sighting.location %><br/><%= date_format(sighting.seen_at) %><br/><p>Likes:&nbsp<%= sighting.likes.count %>'},
 				  click: function(e) {
 	  			}
 				});
