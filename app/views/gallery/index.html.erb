@@ -1,0 +1,67 @@
+<div class="jumbotron">
+  <h1>Gallery</h1>
+  <%= image_tag @sightings[-1].image.url(:medium) %>
+  <p>Browse your favourite shots of Sean's jumper</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Buy</a></p>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <% @sightings.any? %>
+        <% @sightings.each do |sighting| %>
+          <%= image_tag sighting.image.url(:grid) %>
+          <p>Sighting: <%= sighting.caption %></p>
+          <p>Location: <%= sighting.location %></p>
+          <p>Date: <%= sighting.seen_at %></p>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+<% @sightings.any? %>
+  <% @sightings.each do |sighting| %>
+    <%= image_tag sighting.image.url(:grid) %>
+    <p>Sighting: <%= sighting.caption %></p>
+    <p>Location: <%= sighting.location %></p>
+    <p>Date: <%= sighting.seen_at %></p>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+<% @sightings.any? %>
+  <% @sightings.each do |sighting| %>
+    <%= image_tag sighting.image.url(:grid) %>
+    <p>Sighting: <%= sighting.caption %></p>
+    <p>Location: <%= sighting.location %></p>
+    <p>Date: <%= sighting.seen_at %></p>
+    <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+<% @sightings.any? %>
+  <% @sightings.each do |sighting| %>
+    <%= image_tag sighting.image.url(:grid) %>
+    <p>Sighting: <%= sighting.caption %></p>
+    <p>Location: <%= sighting.location %></p>
+    <p>Date: <%= sighting.seen_at %></p>
+    <% end %>
+    </div>
+    <div class="col-md-4">
+<% @sightings.any? %>
+  <% @sightings.each do |sighting| %>
+    <%= image_tag sighting.image.url(:grid) %>
+    <p>Sighting: <%= sighting.caption %></p>
+    <p>Location: <%= sighting.location %></p>
+    <p>Date: <%= sighting.seen_at %></p>
+    <% end %>
+    </div>
+    <div class="col-md-4">
+<% @sightings.any? %>
+  <% @sightings.each do |sighting| %>
+    <%= image_tag sighting.image.url(:grid) %>
+    <p>Sighting: <%= sighting.caption %></p>
+    <p>Location: <%= sighting.location %></p>
+    <p>Date: <%= sighting.seen_at %></p>
+        <% end %>
+    </div>
+  </div>
+</div>
