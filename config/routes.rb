@@ -12,8 +12,13 @@ Rails.application.routes.draw do
     resources :likes
   end
 
-  resources :shop
+  resources :shop, shallow: true do
+    resources :charges
+  end
+
   resources :gallery
+
+  resources :item
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

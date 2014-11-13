@@ -1,10 +1,6 @@
 <div class="jumbotron">
   <h1>Shop</h1>
-  <% if @items.length>0 %>
-  <%= image_tag @items[-1].image.url(:medium) %>
-  <% end %>
   <p>With Christmas just around the corner grab your favourite Sean related item today...</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Buy</a></p>
 </div>
 
 <div class="container-fluid">
@@ -21,6 +17,7 @@
             <div class="panel-footer">
               <%= item.name %>
               £<%= item.price %>
+              <%= buy_now(item) %>
               <%= item.description %>
             </div>
           </div>

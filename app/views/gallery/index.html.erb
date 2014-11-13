@@ -1,9 +1,21 @@
 <div class="jumbotron">
-  <h1>Gallery</h1>
-  <%= image_tag @sightings[-1].image.url(:medium) %>
-  <p>Browse your favourite shots of Sean's jumper</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Buy</a></p>
+  <div class="title">
+    <h1>Gallery</h1>
+    <p>Most liked sighting:</p>
+  </div>
+  <div class="liked">
+    <div class="liked-image">
+      <%= image_tag most_likes(@sightings).image.url(:grid) %>
+    </div>
+    <div class="liked-description">
+      <p>Sighting: <%= most_likes(@sightings).caption %></p>
+      <p>Location: <%= most_likes(@sightings).location %></p>
+      <p>Date: <%= most_likes(@sightings).seen_at %></p>
+    </div>
+  </div>
 </div>
+
+<h2>Browse your favourite shots of Sean's jumper</h2>
 
 <div class="container-fluid">
   <div class="row">

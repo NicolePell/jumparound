@@ -1,0 +1,21 @@
+</br>
+</br>
+</br>
+
+<%= form_for Item.new, url: item_index_path, html: {multipart: true} do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :price %>
+<%= f.number_field :price %>
+
+<%= f.label :description %>
+<%= f.text_field :description %>
+
+<%= f.label :image %>
+<%= f.file_field :image %>
+
+<%= f.submit %>
+
+<% end %>
