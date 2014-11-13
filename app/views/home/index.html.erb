@@ -26,6 +26,7 @@
 </script>
 </div>
 
+
 <h2>Recent Sightings:</h2>
 <div class="container-fluid">
 	<div class="row">
@@ -73,10 +74,22 @@
 </div>
 
 
-	<% if @sightings.any? %>
-			<% @sightings.each do |sighting| %>
 
-
+<% if @sightings.any? %>
+	<% @sightings.each do |sighting| %>
+		<article>
+		<p>Sighting: <%= sighting.caption %></p>
+		<p>Location: <%= sighting.location %></p>
+		<p>Date: <%= sighting.seen_at %></p>
+		<% if user_signed_in? && !find_likes(sighting).include?(current_user.id) %>
+			<span class='likes_count'><%= sighting.likes.count %></span> likes
+			<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
+		<% end %>
+		<% if user_signed_in? && find_likes(sighting).include?(current_user.id) %>
+			<p>You loved this sighting!!!!</p>
+			<span class='likes_count'><%= sighting.likes.count %></span> likes
+		<% end %>
+		</article>
 
 		<%= javascript_tag do %>
 			$(document).ready(function(){
@@ -84,7 +97,7 @@
 	  			lat: <%= sighting.latitude %>,
 				  lng: <%= sighting.longitude %>,
 				  title: "Jumper?",
-				  icon: "images/sean.png",
+				  icon: "images/seanpin1_small.png",
 	  			infoWindow: {content: '<%= sighting.caption %><br/><%= image_tag sighting.image.url(:medium) %><br/><%= sighting.location %><br/><%= sighting.seen_at %>'},
 				  click: function(e) {
 	  			}
