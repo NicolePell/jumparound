@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     resources :likes
   end
 
-  resources :shop
+  resources :shop, shallow: true do
+    resources :charges
+  end
+  
   resources :gallery
 
   # Example of regular route:
