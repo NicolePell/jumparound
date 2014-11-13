@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :shop
+  resources :gallery
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

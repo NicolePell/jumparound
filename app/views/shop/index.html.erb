@@ -1,7 +1,67 @@
-<% @items.any? %>
-  <% @items.each do |item| %>
-    <%= item.name %>
-    £<%= item.price %>
-    <%= item.description %>
-    <%= image_tag item.image.url(:medium) %>
-  <% end %>
+<div class="jumbotron">
+  <h1>Shop</h1>
+  <%= image_tag @items[-1].image.url(:medium) %>
+  <p>With Christmas just around the corner grab your favourite Sean related item today...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Buy</a></p>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <% @items.any? %>
+        <% @items.each do |item| %>
+          <%= item.name %>
+          £<%= item.price %>
+          <%= item.description %>
+          <%= image_tag item.image.url(:grid) %>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+      <% @items.any? %>
+        <% @items.each do |item| %>
+          <%= item.name %>
+          £<%= item.price %>
+          <%= item.description %>
+          <%= image_tag item.image.url(:grid) %>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+      <% @items.any? %>
+        <% @items.each do |item| %>
+          <%= item.name %>
+          £<%= item.price %>
+          <%= item.description %>
+          <%= image_tag item.image.url(:grid) %>
+        <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <% @items.any? %>
+        <% @items.each do |item| %>
+          <%= item.name %>
+          £<%= item.price %>
+          <%= item.description %>
+          <%= image_tag item.image.url(:grid) %>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+      <% @items.any? %>
+        <% @items.each do |item| %>
+          <%= item.name %>
+          £<%= item.price %>
+          <%= item.description %>
+          <%= image_tag item.image.url(:grid) %>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+      <% @items.any? %>
+        <% @items.each do |item| %>
+          <%= item.name %>
+          £<%= item.price %>
+          <%= item.description %>
+          <%= image_tag item.image.url(:grid) %>
+        <% end %>
+    </div>
+  </div>
+</div>

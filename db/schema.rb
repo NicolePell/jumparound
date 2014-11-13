@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20141112152500) do
 
   add_index "likes", ["sighting_id"], name: "index_likes_on_sighting_id", using: :btree
 
+  create_table "shops", force: true do |t|
+    t.string   "item_name"
+    t.integer  "price"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "sightings", force: true do |t|
     t.string   "caption"
     t.string   "location"

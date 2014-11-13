@@ -1,4 +1,5 @@
-<div id='map'></div>
+
+<div id='map'>
 <script>
 	var map;
 	$(document).ready(function(){
@@ -23,18 +24,60 @@
 	});
 
 </script>
+</div>
 
-<% if @sightings.any? %>
-	<% @sightings.each do |sighting| %>
-		<article>
-		<p>Sighting: <%= sighting.caption %></p>
-		<p>Location: <%= sighting.location %></p>
-		<p>Date: <%= sighting.seen_at %></p>
+<h2>Recent Sightings:</h2>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6">
+			<%= image_tag @sightings[-1].image.url(:thumb) %>
+			<p>Sighting: <%= @sightings[-1].caption %></p>
+			<p>Location: <%= @sightings[-1].location %></p>
+			<p>Date: <%= @sightings[-1].seen_at %></p>
+				<% if user_signed_in? %>
+					<span class='likes_count'><%= @sightings[-1].likes.count %></span>likes
+					<%= link_to 'Like', sighting_likes_path(@sighting[-1]), class: 'likes_link' %>
+				<% end %>
+		</div>
+		<div class="col-md-6">
+			<%= image_tag @sightings[-2].image.url(:thumb) %>
+		<p>Sighting: <%= @sightings[-2].caption %></p>
+		<p>Location: <%= @sightings[-2].location %></p>
+		<p>Date: <%= @sightings[-2].seen_at %></p>
+			<% if user_signed_in? %>
+				<span class='likes_count'><%= @sightings[-2].likes.count %></span>likes
+				<%= link_to 'Like', sighting_likes_path(@sighting[-2]), class: 'likes_link' %>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<%= image_tag @sightings[-3].image.url(:thumb) %>
+	<p>Sighting: <%= @sightings[-3].caption %></p>
+	<p>Location: <%= @sightings[-3].location %></p>
+	<p>Date: <%= @sightings[-3].seen_at %></p>
 		<% if user_signed_in? %>
-			<span class='likes_count'><%= sighting.likes.count %></span> likes
-			<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
-		<% end %>
-		</article>
+			<span class='likes_count'><%= @sightings[-3].likes.count %></span>likes
+			<%= link_to 'Like', sighting_likes_path(@sighting[-3]), class: 'likes_link' %>
+		<% end %></div>
+		<div class="col-md-6">
+			<%= image_tag @sightings[-4].image.url(:thumb) %>
+	<p>Sighting: <%= @sightings[-4].caption %></p>
+	<p>Location: <%= @sightings[-4].location %></p>
+	<p>Date: <%= @sightings[-4].seen_at %></p>
+		<% if user_signed_in? %>
+			<span class='likes_count'><%= @sightings[-4].likes.count %></span>likes
+			<%= link_to 'Like', sighting_likes_path(@sighting[-4]), class: 'likes_link' %>
+		<% end %></div>
+	</div>
+</div>
+
+
+	<% if @sightings.any? %>
+			<% @sightings.each do |sighting| %>
+
+
+
 		<%= javascript_tag do %>
 			$(document).ready(function(){
 				map.addMarker({
@@ -48,7 +91,6 @@
 				});
 			});
 		<% end %>
-
 	<% end %>
 <% else %>
 	<h1> Sean's jumper is nowhere to be seen! </h1>
