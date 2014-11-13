@@ -1,6 +1,5 @@
-</br>
-</br>
-</br>
+
+<h2>Add a sighting:</h2>
 
 <%= form_for Sighting.new, html: {multipart: true} do |f| %>
 
@@ -16,6 +15,6 @@
 <%= f.label :image %>
 <%= f.file_field :image %>
 
-<%= f.submit %>
+<%= f.submit "Add sighting", class: 'btn btn-default' %>
 
 <% end %>

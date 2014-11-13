@@ -14,11 +14,17 @@
                 <%= image_tag item.image.url(:grid), class: "image-image" %>
               </div>
             </div>
-            <div class="panel-footer">
-              <%= item.name %>
-              £<%= item.price %>
-              <%= buy_now(item) %>
-              <%= item.description %>
+            <div class="panel-footer shop">
+
+                <div id='item-details'><%= item.name %>
+                  £<%= item.price %></br>
+                  <%= item.description %>
+                </div>
+
+                <div id='buy-button'>
+                  <button type="button" class="btn btn-default btn-sm"><%= buy_now(item) %></button>
+                </div>
+
             </div>
           </div>
         </div>
