@@ -35,7 +35,7 @@ require 'rails_helper'
 
 			it "should prompt a user to complete a form" do
 				visit '/'
-				click_link 'Submit New Sighting'
+				click_link 'Add Sighting'
 				fill_in 'Caption', with: 'In the Queen Vic'
 				click_button 'Create Sighting'
 
@@ -45,7 +45,7 @@ require 'rails_helper'
 
 			it "should allow a photo to be uploaded with the sighting" do
 				visit '/'
-				click_link 'Submit New Sighting'
+				click_link 'Add Sighting'
 				fill_in 'Caption', with: 'In the Queen Vic'
 				attach_file 'Image', Rails.root.join(Rails.root, 'spec', 'test_photo.jpeg')
 				click_button 'Create Sighting'

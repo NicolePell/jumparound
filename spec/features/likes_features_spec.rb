@@ -16,7 +16,7 @@ describe 'Liking pictures' do
       click_button 'Sign up'
     end
 
-    it 'should allow user to like a photo', js: true do
+    fit 'should allow user to like a photo', js: true do
       visit '/'
       click_link 'Like'
       expect(page).to have_content '1 like'

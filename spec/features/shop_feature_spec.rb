@@ -5,7 +5,7 @@ describe 'Shop' do
   context 'when on the homepage' do
     it 'a user should click a link to go to the shop' do
       visit '/'
-      click_link 'Visit shop'
+      click_link 'Shop'
       expect(current_path).to eq '/shop'
     end
   end

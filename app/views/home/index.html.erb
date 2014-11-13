@@ -30,46 +30,56 @@
 <h2>Recent Sightings:</h2>
 <div class="container-fluid">
 	<div class="row">
+		<% if @sightings.length>0 %>
 		<div class="col-md-6">
 			<%= image_tag @sightings[-1].image.url(:thumb) %>
 			<p>Sighting: <%= @sightings[-1].caption %></p>
 			<p>Location: <%= @sightings[-1].location %></p>
 			<p>Date: <%= @sightings[-1].seen_at %></p>
 				<% if user_signed_in? %>
-					<span class='likes_count'><%= @sightings[-1].likes.count %></span>likes
+					<span class='likes_count'><%= @sightings[-1].likes.count %></span>&nbsp;likes
 					<%= link_to 'Like', sighting_likes_path(@sightings[-1]), class: 'likes_link' %>
 				<% end %>
 		</div>
+		<% end %>
+		<% if @sightings.length>1 %>
 		<div class="col-md-6">
 			<%= image_tag @sightings[-2].image.url(:thumb) %>
 		<p>Sighting: <%= @sightings[-2].caption %></p>
 		<p>Location: <%= @sightings[-2].location %></p>
 		<p>Date: <%= @sightings[-2].seen_at %></p>
 			<% if user_signed_in? %>
-				<span class='likes_count'><%= @sightings[-2].likes.count %></span>likes
+				<span class='likes_count'><%= @sightings[-2].likes.count %></span>&nbsp;likes
 				<%= link_to 'Like', sighting_likes_path(@sightings[-2]), class: 'likes_link' %>
 			<% end %>
 		</div>
+		<% end %>
 	</div>
 	<div class="row">
+		<% if @sightings.length>2 %>
 		<div class="col-md-6">
 			<%= image_tag @sightings[-3].image.url(:thumb) %>
 	<p>Sighting: <%= @sightings[-3].caption %></p>
 	<p>Location: <%= @sightings[-3].location %></p>
 	<p>Date: <%= @sightings[-3].seen_at %></p>
 		<% if user_signed_in? %>
-			<span class='likes_count'><%= @sightings[-3].likes.count %></span>likes
+			<span class='likes_count'><%= @sightings[-3].likes.count %></span>&nbsp;likes
 			<%= link_to 'Like', sighting_likes_path(@sightings[-3]), class: 'likes_link' %>
-		<% end %></div>
+		<% end %>
+		</div>
+		<% end %>
+		<% if @sightings.length>3 %>
 		<div class="col-md-6">
 			<%= image_tag @sightings[-4].image.url(:thumb) %>
 	<p>Sighting: <%= @sightings[-4].caption %></p>
 	<p>Location: <%= @sightings[-4].location %></p>
 	<p>Date: <%= @sightings[-4].seen_at %></p>
 		<% if user_signed_in? %>
-			<span class='likes_count'><%= @sightings[-4].likes.count %></span>likes
+			<span class='likes_count'><%= @sightings[-4].likes.count %></span>&nbsp;likes
 			<%= link_to 'Like', sighting_likes_path(@sightings[-4]), class: 'likes_link' %>
-		<% end %></div>
+		<% end %>
+		</div>
+		<% end %>
 	</div>
 </div>
 
@@ -77,19 +87,7 @@
 
 <% if @sightings.any? %>
 	<% @sightings.each do |sighting| %>
-		<article>
-		<p>Sighting: <%= sighting.caption %></p>
-		<p>Location: <%= sighting.location %></p>
-		<p>Date: <%= sighting.seen_at %></p>
-		<% if user_signed_in? && !find_likes(sighting).include?(current_user.id) %>
-			<span class='likes_count'><%= sighting.likes.count %></span> likes
-			<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
-		<% end %>
-		<% if user_signed_in? && find_likes(sighting).include?(current_user.id) %>
-			<p>You loved this sighting!!!!</p>
-			<span class='likes_count'><%= sighting.likes.count %></span> likes
-		<% end %>
-		</article>
+
 
 		<%= javascript_tag do %>
 			$(document).ready(function(){
@@ -108,5 +106,3 @@
 <% else %>
 	<h1> Sean's jumper is nowhere to be seen! </h1>
 <% end %>
-
-<%= link_to 'Submit New Sighting', new_sighting_path %>
