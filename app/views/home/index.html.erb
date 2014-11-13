@@ -37,7 +37,7 @@
 			<p>Date: <%= @sightings[-1].seen_at %></p>
 				<% if user_signed_in? %>
 					<span class='likes_count'><%= @sightings[-1].likes.count %></span>likes
-					<%= link_to 'Like', sighting_likes_path(@sighting[-1]), class: 'likes_link' %>
+					<%= link_to 'Like', sighting_likes_path(@sightings[-1]), class: 'likes_link' %>
 				<% end %>
 		</div>
 		<div class="col-md-6">
@@ -47,7 +47,7 @@
 		<p>Date: <%= @sightings[-2].seen_at %></p>
 			<% if user_signed_in? %>
 				<span class='likes_count'><%= @sightings[-2].likes.count %></span>likes
-				<%= link_to 'Like', sighting_likes_path(@sighting[-2]), class: 'likes_link' %>
+				<%= link_to 'Like', sighting_likes_path(@sightings[-2]), class: 'likes_link' %>
 			<% end %>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 	<p>Date: <%= @sightings[-3].seen_at %></p>
 		<% if user_signed_in? %>
 			<span class='likes_count'><%= @sightings[-3].likes.count %></span>likes
-			<%= link_to 'Like', sighting_likes_path(@sighting[-3]), class: 'likes_link' %>
+			<%= link_to 'Like', sighting_likes_path(@sightings[-3]), class: 'likes_link' %>
 		<% end %></div>
 		<div class="col-md-6">
 			<%= image_tag @sightings[-4].image.url(:thumb) %>
@@ -68,7 +68,7 @@
 	<p>Date: <%= @sightings[-4].seen_at %></p>
 		<% if user_signed_in? %>
 			<span class='likes_count'><%= @sightings[-4].likes.count %></span>likes
-			<%= link_to 'Like', sighting_likes_path(@sighting[-4]), class: 'likes_link' %>
+			<%= link_to 'Like', sighting_likes_path(@sightings[-4]), class: 'likes_link' %>
 		<% end %></div>
 	</div>
 </div>
