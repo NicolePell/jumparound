@@ -11,9 +11,62 @@
 }
 
 .about {
-	background-color: grey;
+	background-color: black ;
+}
+
+.about  {
+	color: white;
 }
 
 .footer {
 	min-height: 100px;
 }
+
+.team_pic {
+	max-height: 150px;
+	border: solid;
+	border-color: white;
+}
+
+.team-pictures {
+	width: 100%;
+	position: relative;
+}
+
+.profile-text {
+	width: 100%;
+}
+
+.profile-pic-box {
+	width: 25%;
+}
+#camilla {
+	width: 25%;
+	float: left;
+/*	background-color: pink;*/
+}
+
+#craig { 
+	width: 25%;
+/*	background-color: yellow;*/
+	float: left;
+}
+
+#nicole {
+/*	background-color: lightblue;*/
+	width: 25%;
+	float: left;
+}
+
+#steve {
+/*	background-color: blue;*/
+	width: 25%;
+	float: left;
+}
+
+.about_header {
+margin-left: 30px;
+}
+
+
+
