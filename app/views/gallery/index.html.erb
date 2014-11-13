@@ -4,6 +4,7 @@
     <p>Most liked sighting:</p>
   </div>
   <div class="liked">
+    <% if @sightings.any? %>
     <div class="liked-image">
       <%= image_tag most_likes(@sightings).image.url(:grid) %>
     </div>
@@ -12,6 +13,7 @@
       <p>Location: <%= most_likes(@sightings).location %></p>
       <p>Date: <%= most_likes(@sightings).seen_at %></p>
     </div>
+    <% end %>
   </div>
 </div>
 
