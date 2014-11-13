@@ -7,7 +7,7 @@
 	  	div: '#map',
 	  	lat: 54,
 	  	lng: -2.5,
-	  	zoom: 5,
+	  	zoom: 4,
 	  	// disableDefaultUI: true,
 	  	zoomControl: true,
 	  	zoomControlOpt: {
@@ -48,7 +48,7 @@
 							<p>Date: <%= date_format(sighting.seen_at) %></p>
 							<% if user_signed_in? && !find_likes(sighting).include?(current_user.id)%>
 								<span class='likes_count'><%= sighting.likes.count %></span>&nbsp;likes
-								<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
+								<div id="like-button"><%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %></div>
 							<% end %>
 							<% if user_signed_in? && find_likes(sighting).include?(current_user.id)%>
 								<p><%= sighting.likes.count %> likes</p>
@@ -68,43 +68,64 @@
 
 
 </section>
-<section class="window about">
+<section class="about">
 <a id='about'></a>
 	<div class="spacer"></div>
-<h2 class="about_header">About</h2>
-<ul>
+</br>
+</br>
+
+
 	<h4>The Story</h4>
-		<p>A few weeks ago, our dear friend Sean Stevens misplaced his favourite jumper. Rumours have been circulating that it has been seen across the country.</p>
+		<p class="about-text">A long, long, long time ago, I can still remember, when.....Sean would wear a lovely grey jumper. Unfortunately this jumper went missing in the Autumn of 2014. Missing may be the wrong word; the jumper is currently on a pilgrimage around the globe. This site is an attempt by some of <a href="#team">Sean's closest friends</a> to help him track his jumper's journey and to be ready for its return. You too will be able to follow the jumper's adventure, and if you are ever lucky enough to see it, you can help Sean by<a href="/sightings/new"> submitting a sighting</a> complete with a photo, location and date. You can view all the wonderful photos in our <a href="/gallery">Gallery</a> - you can even like your favourites and share them on Twitter! <a href="/shop">The Shop</a> also provides all the jumparound.info merchandise you'll ever want. On behalf on Sean, thank you for all your help in locating his jumper.</p>
+		<div class="sean-pic"><img id="sean-round" src="images/sean-pic.jpg" class="img-circle team_pic"></a></div>
 	<h4>The Project</h4>
-		<p>This website is dedicated to helping Sean find his lost jumper, please report any sightings of the jumper by <a href="/sightings/new">reporting a sighting</a></p>
-<h2>The Team</h2>
+		<p class="about-text">Whilst attending<a href="http://www.makersacademy.com/"> Makers Academy</a> (a 12-week intensive coding bootcamp), a project was needed to develop our skills using Ruby on Rails. In an attempt to do some good, we combined the idea of aiding Sean with building a Rails Application. All our code can be found on <a href="https://github.com/NicolePell/jumparound">GitHub</a> as this is an OpenSource project. The team have used HTML, CSS, Sass, JavaScript and jQuery to build this. Bootstrap was also utilised in the design. The application is built on a Postgresql Database. The map technology combines gmaps.js and Geocoder on top of the Google Maps API. There is no Node in this project. The project was completed as part of a 72 hour Makerthon. As with all projects completed at Makers Academy, we received input and support from fellow cohort members and must also give thanks to the Coaches and Alumni who provided assistance - particularly with the modals!</p>
+	</section>
+		<section class="team window">
+		</br>
+	</br>
+<a id="team"></a>
+<!-- <div class="spacer"></div> -->
+<h2 class="team-title">The Team</h2>
+</br>
+</br>
+</br>
+</br>
 </br>
 	<div class="team-pictures">
 
 
 		<div id="camilla">
-			<div class='profile-pic-box'><a href="https://github.com/camillavk" target="_blank"><img src="images/camilla.jpeg" class="img-circle team_pic"></a></div>
-			<div class='profile-text'>Camilla's profile text and details.</div>
+			<div class='profile-pic-box'><a href="https://github.com/camillavk" target="_blank" id='cam-pic'><img src="images/camilla.jpeg" class="img-circle team_pic"></a></div>
+		</br>
+			<div class='profile-text'>Since a young age Camilla has always been passionate about finding Jumpers, when she was approached to help find Sean's jumper she <i>jumped</i> at the chance! Leaving her teaching profession behind and pursuing a full time jumper searching role.</div>
 		</div>
 		<div id="craig">
-			<div class='profile-pic-box'><a href="https://github.com/craigh44" target="_blank"><img src="images/craig.jpeg" class="img-circle team_pic"></a></div>
-			<div class='profile-text'>Craig's profile text and details.</div>
+			<div class='profile-pic-box'><a href="https://github.com/craigh44" target="_blank" id='cra-pic'><img src="images/craig.jpeg" class="img-circle team_pic"></a></div>
+		</br>
+			<div class='profile-text'>Being from the North Craig was always unsure what a jumper actually was. Since his recent move to London however he has became a huge fan of jumpers and a huge fan of Sean. He definitely did not origianlly steal the jumper & definitely did not take it to Newcaslte.</div>
 		</div>
 		<div id="nicole">
-			<div class='profile-pic-box'><a href="https://github.com/nicolepell" target="_blank"><img src="images/nicole.png" class="img-circle team_pic"></a></div>
-			<div class='profile-text'>Nicole's profile text and details.</div>
+			<div class='profile-pic-box'><a href="https://github.com/nicolepell" target="_blank" id='nic-pic'><img src="images/nicole.png" class="img-circle team_pic"></a></div>
+		</br>
+			<div class='profile-text'>Once upon a time, Nicole (who comes from South Africa where they refer to jumpers as "jerseys") came to England on pursuit of the wooliest jumper in the land! Her favorite time of year is Christmas when she gets to wear seasonal jumpers with Reindeers on!</div>
 		</div>
 		<div id="steve">
-			<div class='profile-pic-box'><a href="https://github.com/hatstephens" target="_blank"><img src="images/steve.jpeg" class="img-circle team_pic"></a></div>
-			<div class='profile-text'>Steve's profile text and details.</div>
+			<div class='profile-pic-box'><a href="https://github.com/hatstephens" target="_blank" id='ste-pic'><img src="images/steve.jpeg" class="img-circle team_pic"></a></div>
+		</br>
+			<div class='profile-text'>In 1990 Steve lost his favourite wooly jumper, it was blue! At that time there was insufficient technology around to help him find it. Inspired by Sean's story he decided to put together a team to achieve this goal as he once could not those many years ago.</div>
 			<div>
 
 </div>
 </section>
+<div class="footer">
+<footer>
+<hr>
+	
+	<a class="easter-egg" href="http://www.railslove.com/" target="_blank"><p>No Node Zone</p></a><p class="footer">&copy; jumparound</p>
 
-<footer class="footer">
-&copy; Jumparound
 	</footer>
+</div>
 
 <% if @sightings.any? %>
 	<% @sightings.each do |sighting| %>

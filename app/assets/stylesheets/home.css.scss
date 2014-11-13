@@ -11,13 +11,22 @@
 }
 
 .about {
-
+	text-align: center;
+	font-size: 14px;
+	min-height: 600px;
+	color: #8b8b8b;
 	background-color: black ;
+}
+
+.team {
+	background-color: white;
 }
 
 
 .footer {
-	min-height: 100px;
+	background-color: black;
+	text-align: right;
+	min-height: 20px;
 }
 
 .panel-footer {
@@ -30,7 +39,7 @@
 .team_pic {
 	max-height: 150px;
 	border: solid;
-	border-color: white;
+	border-color: black;
 }
 
 .team-pictures {
@@ -39,12 +48,33 @@
 }
 
 .profile-text {
+	padding: 25px;
+
+	border-color: black;
+	text-align: center;
 	width: 100%;
 }
 
-.profile-pic-box {
+/*.profile-pic-box {
 	width: 25%;
+}*/
+
+#cam-pic {
+	margin-left: 25%;
 }
+
+#nic-pic {
+	margin-left: 25%;
+}
+
+#cra-pic {
+	margin-left: 25%;
+}
+
+#ste-pic {
+	margin-left: 25%;
+}
+
 #camilla {
 	width: 25%;
 	float: left;
@@ -69,7 +99,39 @@
 	float: left;
 }
 
-.about_header {
-margin-left: 30px;
+
+
+.easter-egg {
+	text-align: center;
 }
 
+.team-title {
+	text-align: center;
+}
+
+h4 {
+	text-decoration: underline;
+}
+
+.sean-pic {
+	text-align: center;
+}
+
+.footer {
+	background-color: black;
+	color: white;
+}
+
+#sean-round {
+		border: solid;
+	border-color: white;
+}
+
+.about-text {
+	padding: 15px;
+}
+
+#like-button {
+	font-size: 20px;
+	text-align: center;
+}
