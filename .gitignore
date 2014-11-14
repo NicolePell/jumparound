@@ -11,4 +11,6 @@
 /log/*.log
 /tmp
 
+
+/config/secrets.development.yml
 /config/secrets.yml
