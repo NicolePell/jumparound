@@ -19,7 +19,6 @@
 //= require jquery.modal.min
 //= require_tree .
 //= require_self
-//= require 'site'
 
 
 $(document).ready(function(){
