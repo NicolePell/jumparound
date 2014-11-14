@@ -13,3 +13,4 @@
 
 
 /config/secrets.development.yml
+/config/secrets.yml
