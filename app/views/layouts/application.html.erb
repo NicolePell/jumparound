@@ -72,7 +72,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/shop">Shop</a></li>
         <li><a href="/gallery">Gallery</a></li>
-        <li><%= link_to 'Add Sighting', "new_sighting_modal", remote: true, :class => "newsighting" %></li>
+        <li><%= link_to 'Add Sighting', "#new_sighting_modal", remote: true, :class => "newsighting" %></li>
         <!-- <li><a href="/sightings/new">Add Sighting</a></li> -->
         <% if current_page?('/') %>
         <li><a href="#recent-sightings">Recent Sightings</a></li>
