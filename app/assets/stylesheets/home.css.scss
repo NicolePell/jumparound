@@ -22,6 +22,11 @@
 	background-color: white;
 }
 
+.panel-footer {
+	min-height: 150px;
+  display: flex;
+}
+
 
 .footer {
 	background-color: black;
@@ -29,11 +34,8 @@
 	min-height: 20px;
 }
 
-.panel-footer {
-  display: flex;
-}
-
 .recent-info {
+	min-height: 100px;
   padding-left: 15px;
 }
 .team_pic {
@@ -134,4 +136,8 @@ h4 {
 #like-button {
 	font-size: 20px;
 	text-align: center;
+}
+
+#bold-span {
+	font-weight: bold;
 }

@@ -7,6 +7,55 @@
 }
 
 .liked {
-  display: flex;
-  padding: 20px;
+/*  display: flex;*/
+  padding-left: 42%;
+}
+
+
+#sighting {
+	font-weight: bold;
+	font-size: 20px;
+	display: inline;
+}
+
+.liked-image {
+	border: solid;
+	border-color: black;
+	max-height: 200px
+}
+
+#place {
+	display: inline;
+	font-weight: none;
+}
+#gallery-title {
+	text-align: center;
+}
+
+#descriptions {
+	font-size: 15px;
+}
+
+.liked-info {
+	text-align: center;
+}
+
+.panel-footer {
+	min-height: 70px;
+	max-height: 90px;
+}
+
+#box-size {
+	min-height: 70px;
+	max-height: 90px;
+}
+
+#gall-title {
+	padding: 10px;
+	padding-left: 20px;
+	font-weight: bold;
+}
+
+h2 {
+	text-align: center;
 }

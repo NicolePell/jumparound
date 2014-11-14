@@ -21,18 +21,22 @@
 		  mapTypeControl: false,
 				 styles: [{"featureType":"administrative","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"administrative.country","elementType":"geometry.stroke","stylers":[{"color":"#DCE7EB"}]},{"featureType":"administrative.province","elementType":"geometry.stroke","stylers":[{"color":"#DCE7EB"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"transit.station.airport","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"transit.station.airport","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#83888B"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]}]
 	  });
-
-
 	});
-
-
-
 </script>
 </div>
 <section class="window">
 <a id="recent-sightings"></a>
 <div class="spacer"></div>
+</br>
+</br>
+</br>
+</br>
+</br>
 <h2>Recent Sightings:</h2>
+</br>
+</br>
+</br>
+</br>
 
 <div class="container-fluid">
   <div class="row">
@@ -43,20 +47,25 @@
           <div class="panel panel-default">
             <div class="panel-footer">
               <div class="recent-image">
+              	</br>
               	<%= image_tag sighting.image.url(:thumb) %>
               </div>
               <div class="recent-info">
-              <p>Sighting: <%= sighting.caption %></p>
-							<p>Location: <%= sighting.location %></p>
-							<p>Date: <%= date_format(sighting.seen_at) %></p>
+              </br>
+              <p><span id="bold-span">Sighting:</span> <%= sighting.caption %></p>
+							<p><span id="bold-span">Location:</span> <%= sighting.location %></p>
+							<p><span id="bold-span">Date:</span> <%= date_format(sighting.seen_at) %></p>
 							<% if user_signed_in? && !find_likes(sighting).include?(current_user.id)%>
 								<span class='likes_count'><%= sighting.likes.count %></span>&nbsp;likes
-								<div id="like-button"><%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %></div>
+								<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
 							<% end %>
 							<% if user_signed_in? && find_likes(sighting).include?(current_user.id)%>
 								<p><%= sighting.likes.count %> likes</p>
 								<p>You liked this sighting didn't you!</p>
 							<% end %>
+			
+
+
 							</div>
             </div>
           </div>
@@ -65,9 +74,7 @@
     <% end %>
   </div>
 </div>
-<h2>Weather Report:</h2>
-<p>Sean's Jumper has travelled far and wide. In its travels it has become accustomed to many different weather conditions. Currently, the weather report at the most recent sighting is:</p>
-<h3>ENTER WEATHER API REPORT HERE</h3>
+
 
 
 </section>
@@ -79,10 +86,15 @@
 
 
 	<h4>The Story</h4>
+</br>
 		<p class="about-text">A long, long, long time ago, I can still remember, when.....Sean would wear a lovely grey jumper. Unfortunately this jumper went missing in the Autumn of 2014. Missing may be the wrong word; the jumper is currently on a pilgrimage around the globe. This site is an attempt by some of <a href="#team">Sean's closest friends</a> to help him track his jumper's journey and to be ready for its return. You too will be able to follow the jumper's adventure, and if you are ever lucky enough to see it, you can help Sean by<a href="/sightings/new"> submitting a sighting</a> complete with a photo, location and date. You can view all the wonderful photos in our <a href="/gallery">Gallery</a> - you can even like your favourites and share them on Twitter! <a href="/shop">The Shop</a> also provides all the jumparound.info merchandise you'll ever want. On behalf on Sean, thank you for all your help in locating his jumper.</p>
+	</br>
 		<div class="sean-pic"><img id="sean-round" src="images/sean-pic.jpg" class="img-circle team_pic"></a></div>
+	</br>
 	<h4>The Project</h4>
+</br>
 		<p class="about-text">Whilst attending<a href="http://www.makersacademy.com/"> Makers Academy</a> (a 12-week intensive coding bootcamp), a project was needed to develop our skills using Ruby on Rails. In an attempt to do some good, we combined the idea of aiding Sean with building a Rails Application. All our code can be found on <a href="https://github.com/NicolePell/jumparound">GitHub</a> as this is an OpenSource project. The team have used HTML, CSS, Sass, JavaScript and jQuery to build this. Bootstrap was also utilised in the design. The application is built on a Postgresql Database. The map technology combines gmaps.js and Geocoder on top of the Google Maps API. There is no Node in this project. The project was completed as part of a 72 hour Makerthon. As with all projects completed at Makers Academy, we received input and support from fellow cohort members and must also give thanks to the Coaches and Alumni who provided assistance - particularly with the modals!</p>
+	</br>
 	</section>
 		<section class="team window">
 		</br>
@@ -125,7 +137,7 @@
 <footer>
 <hr>
 	
-	<a class="easter-egg" href="http://www.railslove.com/" target="_blank"><p>No Node Zone</p></a><p class="footer">&copy; jumparound</p>
+	<a class="easter-egg" href="http://www.railslove.com/" target="_blank"><p>No Node Zone</p></a><p class="footer">&copy; jumparound.info  </p>
 
 	</footer>
 </div>
