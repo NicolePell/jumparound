@@ -17,8 +17,8 @@
 //= require gmaps
 //= require jquery-ui
 //= require jquery.modal.min
-//= require_self
 //= require_tree .
+//= require_self
 
 
 $(document).ready(function(){
