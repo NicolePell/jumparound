@@ -15,11 +15,11 @@ Where is Sean's Jumper?! A 3-day Makerathon project using Rails to try and locat
 ## Job List
 
 - [x] Set up Rails App
-- [ ] Add Devise
-- [ ] Add Map
-- [ ] Pop-Up Logins
-- [ ] Functionality on Map
-- [ ] E-Commerce Section using Stripe
+- [x] Add Devise
+- [x] Add Map
+- [x] Pop-Up Logins
+- [x] Functionality on Map
+- [x] E-Commerce Section using Stripe
 - [ ] Linking to Weather API
 
 ## Favourite Code Snippet
@@ -36,5 +36,5 @@ Where is Sean's Jumper?! A 3-day Makerathon project using Rails to try and locat
 
 ## Still to complete/refactor
 
-- [ ]
-- [ ]
+- [ ] Incorporate Weather API
+- [ ] Yo Integration
