@@ -3,7 +3,7 @@
 <head>
   <title>Jumparound</title>
 
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -74,7 +74,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/shop">Shop</a></li>
         <li><a href="/gallery">Gallery</a></li>
-        <li><%= link_to 'Add Sighting', "new_sighting_modal", remote: true, :class => "newsighting" %></li>
+        <li><%= link_to 'Add Sighting', "#new_sighting_modal", remote: true, :class => "newsighting" %></li>
         <!-- <li><a href="/sightings/new">Add Sighting</a></li> -->
         <% if current_page?('/') %>
         <li><a href="#recent-sightings">Recent Sightings</a></li>
