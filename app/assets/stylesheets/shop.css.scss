@@ -14,6 +14,40 @@
   width: 83%;
 }
 
+#name-price {
+	  font-weight: bold;
+}
+
+#item-details {
+  width: 75%;
+}
+
+#shop-box-size {
+	min-height: 70px;
+}
+
 #buy-button {
+	padding-left: 32px;
+	padding-top: 8px;
   width: 17%
+}
+
+
+/*.shop-title {
+
+}*/
+
+.sean-shop {
+	border: solid;
+	border-color: black;
+	max-height: 200px;
+}
+
+#shop-tag {
+	text-align: center;
+	 font-style: italic;
+}
+
+.shop-head {
+	text-align: center;
 }

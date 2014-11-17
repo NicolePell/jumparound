@@ -1,8 +1,16 @@
-<div class="jumbotron">
-  <h1>Shop</h1>
-  <p>With Christmas just around the corner grab your favourite Sean related item today...</p>
+<div class="jumbotron shop-head">
+  <h1 class="shop-title">Shop</h1>
+</br>
+</br>
+</br>
+  <a href="#shop"><img src="images/sean-shop.jpg" class="img-circle sean-shop"></a>
+</br>
+</br>
+</br>
+</br>
+  <p id="shop-tag">With Christmas just around the corner grab your favourite Sean related item today...</p>
+<a id="shop"></a>
 </div>
-
 <div class="container-fluid">
   <div class="row">
     <% @items.any? %>
@@ -14,11 +22,15 @@
                 <%= image_tag item.image.url(:grid), class: "image-image" %>
               </div>
             </div>
-            <div class="panel-footer shop">
+            <div class="panel-footer shop" id="shop-box-size">
 
-                <div id='item-details'><%= item.name %>
+                <div id='item-details'>
+                  <div id="name-price"><%= item.name %>:
                   £<%= item.price %></br>
-                  <%= item.description %>
+                </div>
+                  <div id="description">
+                    <%= item.description %>
+                  </div>
                 </div>
 
                 <div id='buy-button'>
