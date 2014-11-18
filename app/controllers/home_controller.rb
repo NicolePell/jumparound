@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 
 def index
 		@sightings = Sighting.all
+    @map_sightings = Sighting.all
 end
 
 end

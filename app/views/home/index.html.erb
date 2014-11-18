@@ -41,36 +41,9 @@
 <div class="container-fluid">
   <div class="row">
   	<% if @sightings.any? %>
-<<<<<<< HEAD
 	    <% @sightings = @sightings[(-4..-1)] if @sightings.length > 3 %>
 	    <% @sightings.reverse.each do |sighting| %>
-	      <div class="col-md-6">
-	          <div class="panel panel-default">
-	            <div class="panel-footer">
-	              <div class="recent-image">
-	              	<%= image_tag sighting.image.url(:thumb) %>
-	              </div>
-	              <div class="recent-info">
-	              <p>Sighting: <%= sighting.caption %></p>
-								<p>Location: <%= sighting.location %></p>
-								<p>Date: <%= date_format(sighting.seen_at) %></p>
-								<% if user_signed_in? && !find_likes(sighting).include?(current_user.id)%>
-									<span class='likes_count'><%= sighting.likes.count %></span>&nbsp;likes
-									<%= link_to 'Like', sighting_likes_path(sighting), class: 'likes_link' %>
-								<% end %>
-								<% if user_signed_in? && find_likes(sighting).include?(current_user.id)%>
-									<p><%= sighting.likes.count %> likes</p>
-									<p>You liked this sighting didn't you!</p>
-								<% end %>
-								</div>
-	            </div>
-	          </div>
-	        </div>
-	    <% end %>
-=======
-    <% @sightings = @sightings[(-4..-1)] if @sightings.length > 3 %>
-    <% @sightings.reverse.each do |sighting| %>
-      <div class="col-md-6">
+      	<div class="col-md-6">
           <div class="panel panel-default">
             <div class="panel-footer">
               <div class="recent-image">
@@ -90,15 +63,11 @@
 								<p><%= sighting.likes.count %> likes</p>
 								<p>You liked this sighting didn't you!</p>
 							<% end %>
-			
-
-
 							</div>
             </div>
           </div>
         </div>
-    <% end %>
->>>>>>> craigs-css
+    	<% end %>
     <% end %>
   </div>
 </div>
@@ -164,19 +133,13 @@
 <div class="footer">
 <footer>
 <hr>
-<<<<<<< HEAD
-
-	<a class="easter-egg" href="http://www.railslove.com/" target="_blank"><p>No Node Zone</p></a><p class="footer">&copy; jumparound</p>
-=======
-	
 	<a class="easter-egg" href="http://www.railslove.com/" target="_blank"><p>No Node Zone</p></a><p class="footer">&copy; jumparound.info  </p>
->>>>>>> craigs-css
 
 	</footer>
 </div>
 
-<% if @sightings.any? %>
-	<% @sightings.each do |sighting| %>
+<% if @map_sightings.any? %>
+	<% @map_sightings.each do |sighting| %>
 
 
 		<%= javascript_tag do %>
