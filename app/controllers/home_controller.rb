@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
 
-	def index
-			@sightings = Sighting.all
-	    @map_sightings = Sighting.all
-	end
+  def index
+      @sightings = Sighting.all
+      @map_sightings = Sighting.all
+  end
 
 end
 
@@ -19,8 +19,8 @@ def date_format(wrong_format)
 end
 
 def most_likes(sighting)
-	@likes = Like.all
-	@sightings = Sighting.all
-	@most_likes = @sightings.each {|sighting| sighting.likes.count}.max_by{|sighting| sighting.likes.count }
-	@most_likes
+  @likes = Like.all
+  @sightings = Sighting.all
+  @most_likes = @sightings.each {|sighting| sighting.likes.count}.max_by{|sighting| sighting.likes.count }
+  @most_likes
 end
