@@ -1,45 +1,42 @@
 <div class="jumbotron shop-head">
   <h1 class="shop-title">Shop</h1>
-</br>
-</br>
-</br>
+  </br>
+  </br>
+  </br>
   <a href="#shop"><img src="images/sean-shop.jpg" class="img-circle sean-shop"></a>
-</br>
-</br>
-</br>
-</br>
+  </br>
+  </br>
+  </br>
+  </br>
   <p id="shop-tag">With Christmas just around the corner grab your favourite Sean related item today...</p>
-<a id="shop"></a>
+  <a id="shop"></a>
 </div>
 <div class="container-fluid">
   <div class="row">
     <% @items.any? %>
     <% @items.each do |item| %>
       <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="panel-panel">
-                <%= image_tag item.image.url(:grid), class: "image-image" %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="panel-panel">
+              <%= image_tag item.image.url(:grid), class: "image-image" %>
+            </div>
+          </div>
+          <div class="panel-footer shop" id="shop-box-size">
+            <div id='item-details'>
+              <div id="name-price"><%= item.name %>:
+                £<%= item.price %></br>
+              </div>
+              <div id="description">
+                <%= item.description %>
               </div>
             </div>
-            <div class="panel-footer shop" id="shop-box-size">
-
-                <div id='item-details'>
-                  <div id="name-price"><%= item.name %>:
-                  £<%= item.price %></br>
-                </div>
-                  <div id="description">
-                    <%= item.description %>
-                  </div>
-                </div>
-
-                <div id='buy-button'>
-                  <button type="button" class="btn btn-default btn-sm"><%= buy_now(item) %></button>
-                </div>
-
+            <div id='buy-button'>
+              <button type="button" class="btn btn-default btn-sm"><%= buy_now(item) %></button>
             </div>
           </div>
         </div>
+      </div>
     <% end %>
   </div>
 </div>

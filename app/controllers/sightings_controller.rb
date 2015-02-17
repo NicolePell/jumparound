@@ -2,9 +2,6 @@ class SightingsController < ApplicationController
 
   before_action :authenticate_user!
 
-	def new
-	end
-
 	def create
 		@sighting = Sighting.new(sighting_params)
     @sighting.user = current_user
@@ -14,11 +11,8 @@ class SightingsController < ApplicationController
       @sighting.delete
       flash[:alert] = "Your sighting has not been saved"
     end
-
 		redirect_to '/'
-
   end
-
 end
 
 def sighting_params

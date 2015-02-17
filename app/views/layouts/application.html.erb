@@ -5,7 +5,6 @@
 
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
@@ -13,48 +12,47 @@
 </head>
 <body>
   <div class="modal" id="new_user_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <%= render 'devise/registrations/new' %>
-      </div>
-      <div class="modal-footer">
-        <a href="#" rel="modal:close" class="close-modal ">Close</a>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render 'devise/registrations/new' %>
+        </div>
+        <div class="modal-footer">
+          <a href="#" rel="modal:close" class="close-modal ">Close</a>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <div class="modal" id="new_session_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <%= render 'devise/sessions/new' %>
-      </div>
-      <div class="modal-footer">
-        <a href="#" rel="modal:close" class="close-modal ">Close</a>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render 'devise/sessions/new' %>
+        </div>
+        <div class="modal-footer">
+          <a href="#" rel="modal:close" class="close-modal ">Close</a>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <div class="modal" id="new_sighting_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <%= render 'sightings/new' %>
-      </div>
-      <div class="modal-footer">
-        <a href="#" rel="modal:close" class="close-modal ">Close</a>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render 'sightings/new' %>
+        </div>
+        <div class="modal-footer">
+          <a href="#" rel="modal:close" class="close-modal ">Close</a>
+        </div>
       </div>
     </div>
   </div>
-  </div>
 
   <a id="home"></a>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
- <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -63,31 +61,26 @@
         <span class="icon-bar"></span>
       </button>
       <% if current_page?('/') %>
-      <a class="navbar-brand" href="#home">jumparound.info</a>
+        <a class="navbar-brand" href="#home">jumparound.info</a>
       <% else %>
-      <%= link_to 'jumparound.info', root_path, 'data-no-turbolink' => true, class: "navbar-brand" %>
+        <%= link_to 'jumparound.info', root_path, 'data-no-turbolink' => true, class: "navbar-brand" %>
       <% end %>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/shop">Shop</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><%= link_to 'Add Sighting', "#new_sighting_modal", remote: true, :class => "newsighting" %></li>
-        <!-- <li><a href="/sightings/new">Add Sighting</a></li> -->
         <% if current_page?('/') %>
-        <li><a href="#recent-sightings">Recent Sightings</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#team">Team</a></li>
+          <li><a href="#recent-sightings">Recent Sightings</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Team</a></li>
         <% end %>
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
         <% else %>
-
           <li><%= link_to 'Sign up', "#new_user_modal", remote: true, :class => "signup" %></li>
           <li><%= link_to 'Sign in', "#new_session_modal", remote: true, :class => "signin"  %></li>
           <li><%= link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook) %></li>
@@ -98,10 +91,6 @@
 </nav>
 </br>
 </br>
-
-
-  <!-- <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
 
 <%= yield %>
 

@@ -8,4 +8,5 @@ class LikesController < ApplicationController
 
     render json: {new_likes_count: @sighting.likes.count}
   end
+  
 end

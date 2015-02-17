@@ -1,34 +1,27 @@
 <div class="gallery-head">
   <div class="jumbotron">
     <h1 id="gallery-title">Gallery</h1>
-  </br>
-      <p id="gallery-title">Most liked sighting:</p>
     </br>
-  
-  <div class="liked">
-    <% if @sightings.any? %>
-
-      <a href="#gallery"><%= image_tag most_likes(@sightings).image.url(:grid), class: "img-circle liked-image" %></a>
+    <p id="gallery-title">Most liked sighting:</p>
     </br>
-    </br>
-  </div>
-
-
-
+    <div class="liked">
+      <% if @sightings.any? %>
+        <a href="#gallery"><%= image_tag most_likes(@sightings).image.url(:grid), class: "img-circle liked-image" %></a>
+        </br>
+        </br>
+    </div>
     <div class="liked-info">
       <p id="sighting">Sighting:</p><p id='place'> <%= most_likes(@sightings).caption %></p><br />
       <p id="sighting">Location:</p><p id='place'> <%= most_likes(@sightings).location %></p>
-    </br>
+      </br>
       <p id="sighting">Date:</p><p id='place'> <%= most_likes(@sightings).seen_at %></p>
     </div>
-
-
-    <% end %>
-<a id="gallery"></a>
+      <% end %>
+    <a id="gallery"></a>
   </div>
 </div>
-<div id="spacer"></div>
 
+<div id="spacer"></div>
 
 <h2>Browse your favourite shots of Sean's jumper</h2>
 </br>
@@ -45,9 +38,9 @@
             </div>
           </div>
           <div class="panel-footer" id="box-size">
-             <p id="gall-title">Sighting:</br><%= sighting.caption %></p>
-             <p id="gall-title">Location:</br> <%= sighting.location %></p>
-             <p id="gall-title">Date:</br> <%= sighting.seen_at %></p>
+            <p id="gall-title">Sighting:</br><%= sighting.caption %></p>
+            <p id="gall-title">Location:</br> <%= sighting.location %></p>
+            <p id="gall-title">Date:</br> <%= sighting.seen_at %></p>
           </div>
         </div>
       </div>
